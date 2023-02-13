@@ -9,6 +9,10 @@ function getComputerChoice() {
   }
 }
 
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
+
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     return `You Draw! You both chose ${playerSelection}`;
@@ -18,5 +22,7 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === "Scissors" && computerSelection === "Paper")
   ) {
     return `You win! ${playerSelection} beats ${computerSelection}`;
+  } else {
+    return `You lose! ${computerSelection} beats ${playerSelection}`;
   }
 }
