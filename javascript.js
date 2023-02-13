@@ -36,5 +36,24 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-  for (let i = 0; i < 5; i++) {}
+  let playerScore = 0;
+  let computerScore = 0;
+
+  for (let i = 0; i < 5; i++) {
+    let choice = prompt("Please choose rock, paper, or scissors");
+    let result = playRound(choice, getComputerChoice());
+
+    if (result === "Win") {
+      playerScore++;
+    } else if (result === "Lose") {
+      computerScore++;
+    }
+  }
+  if (playerScore > computerScore) {
+    return "The player wins!";
+  } else if (computerScore > playerScore) {
+    return "The computer wins!";
+  } else {
+    return "It's a draw!";
+  }
 }
