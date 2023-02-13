@@ -9,4 +9,14 @@ function getComputerChoice() {
   }
 }
 
-console.log(getComputerChoice());
+function playRound(playerSelection, computerSelection) {
+  if (playerSelection === computerSelection) {
+    return `You Draw! You both chose ${playerSelection}`;
+  } else if (
+    (playerSelection === "Rock" && computerSelection === "Scissors") ||
+    (playerSelection === "Paper" && computerSelection === "Rock") ||
+    (playerSelection === "Scissors" && computerSelection === "Paper")
+  ) {
+    return `You win! ${playerSelection} beats ${computerSelection}`;
+  }
+}
