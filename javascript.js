@@ -14,15 +14,27 @@ function capitalize(str) {
 }
 
 function playRound(playerSelection, computerSelection) {
+  playerSelection = capitalize(playerSelection);
+
   if (playerSelection === computerSelection) {
-    return `You Draw! You both chose ${playerSelection}`;
+    console.log(`You Draw! You both chose ${playerSelection}`);
+    return "Draw";
+    // return `You Draw! You both chose ${playerSelection}`;
   } else if (
     (playerSelection === "Rock" && computerSelection === "Scissors") ||
     (playerSelection === "Paper" && computerSelection === "Rock") ||
     (playerSelection === "Scissors" && computerSelection === "Paper")
   ) {
-    return `You win! ${playerSelection} beats ${computerSelection}`;
+    console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
+    return "Win";
+    // return `You Win! ${playerSelection} beats ${computerSelection}`;
   } else {
-    return `You lose! ${computerSelection} beats ${playerSelection}`;
+    console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
+    return "Lose";
+    // return `You Lose! ${computerSelection} beats ${playerSelection}`;
   }
+}
+
+function game() {
+  for (let i = 0; i < 5; i++) {}
 }
