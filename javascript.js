@@ -13,11 +13,16 @@ function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
 
+const result = document.querySelector("#results");
+
 function playRound(playerSelection, computerSelection) {
   playerSelection = capitalize(playerSelection);
 
   if (playerSelection === computerSelection) {
-    console.log(`You Draw! You both chose ${playerSelection}`);
+    // console.log(`You Draw! You both chose ${playerSelection}`);
+    const draw = document.createElement("div");
+    draw.textContent = `You Draw! You both chose ${playerSelection}`;
+    result.appendChild(draw);
     return "Draw";
     // return `You Draw! You both chose ${playerSelection}`;
   } else if (
@@ -25,11 +30,17 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === "Paper" && computerSelection === "Rock") ||
     (playerSelection === "Scissors" && computerSelection === "Paper")
   ) {
-    console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
+    // console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
+    const win = document.createElement("div");
+    win.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
+    result.appendChild(win);
     return "Win";
     // return `You Win! ${playerSelection} beats ${computerSelection}`;
   } else {
-    console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
+    // console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
+    const lose = document.createElement("div");
+    lose.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
+    result.append(lose);
     return "Lose";
     // return `You Lose! ${computerSelection} beats ${playerSelection}`;
   }
