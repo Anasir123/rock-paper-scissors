@@ -35,27 +35,30 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function game() {
-  let playerScore = 0;
-  let computerScore = 0;
+const rockBtn = document.querySelector("#rock-btn");
+rockBtn.addEventListener("click", () => playRound("rock", getComputerChoice()));
 
-  for (let i = 0; i < 5; i++) {
-    let choice = prompt("Please choose rock, paper, or scissors");
-    let result = playRound(choice, getComputerChoice());
+// function game() {
+//   let playerScore = 0;
+//   let computerScore = 0;
 
-    if (result === "Win") {
-      playerScore++;
-    } else if (result === "Lose") {
-      computerScore++;
-    }
-  }
-  if (playerScore > computerScore) {
-    console.log("The player wins the game!");
-  } else if (computerScore > playerScore) {
-    console.log("The computer wins!");
-  } else {
-    console.log("The game is a draw!");
-  }
-}
+//   for (let i = 0; i < 5; i++) {
+//     let choice = prompt("Please choose rock, paper, or scissors");
+//     let result = playRound(choice, getComputerChoice());
 
-game();
+//     if (result === "Win") {
+//       playerScore++;
+//     } else if (result === "Lose") {
+//       computerScore++;
+//     }
+//   }
+//   if (playerScore > computerScore) {
+//     console.log("The player wins the game!");
+//   } else if (computerScore > playerScore) {
+//     console.log("The computer wins!");
+//   } else {
+//     console.log("The game is a draw!");
+//   }
+// }
+
+// game();
