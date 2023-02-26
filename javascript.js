@@ -20,6 +20,7 @@ function capitalize(str) {
 const result = document.querySelector("#results");
 const score = document.querySelector("#score");
 score.textContent = `Player Score: ${playerScore}, Computer Score: ${computerScore}`;
+const winner = document.querySelector("#winner");
 
 function playRound(playerSelection, computerSelection) {
   playerSelection = capitalize(playerSelection);
@@ -63,10 +64,11 @@ function playRound(playerSelection, computerSelection) {
 
 const rockBtn = document.querySelector("#rock-btn");
 rockBtn.addEventListener("click", () => playRound("rock", getComputerChoice()));
-rockBtn.addEventListener("click", () => console.log(count++));
 rockBtn.addEventListener("click", () => {
-  if (count === 5) {
-    count = 0;
+  if (playerScore === 5) {
+    winner.textContent = "***Player Wins!***";
+  } else if (computerScore === 5) {
+    winner.textContent = "***Computer Wins!***";
   }
 });
 
@@ -74,33 +76,47 @@ const paperBtn = document.querySelector("#paper-btn");
 paperBtn.addEventListener("click", () =>
   playRound("paper", getComputerChoice())
 );
+paperBtn.addEventListener("click", () => {
+  if (playerScore === 5) {
+    winner.textContent = "***Player Wins!***";
+  } else if (computerScore === 5) {
+    winner.textContent = "***Computer Wins!***";
+  }
+});
 
 const scissorsBtn = document.querySelector("#scissors-btn");
 scissorsBtn.addEventListener("click", () =>
   playRound("scissors", getComputerChoice())
 );
-
-function game() {
-  let playerScore = 0;
-  let computerScore = 0;
-
-  for (let i = 0; i < 5; i++) {
-    // let choice = prompt("Please choose rock, paper, or scissors");
-    let result = playRound(choice, getComputerChoice());
-
-    if (result === "Win") {
-      playerScore++;
-    } else if (result === "Lose") {
-      computerScore++;
-    }
+scissorsBtn.addEventListener("click", () => {
+  if (playerScore === 5) {
+    winner.textContent = "***Player Wins!***";
+  } else if (computerScore === 5) {
+    winner.textContent = "***Computer Wins!***";
   }
-  if (playerScore > computerScore) {
-    console.log("The player wins the game!");
-  } else if (computerScore > playerScore) {
-    console.log("The computer wins!");
-  } else {
-    console.log("The game is a draw!");
-  }
-}
+});
+
+// function game() {
+//   let playerScore = 0;
+//   let computerScore = 0;
+
+//   for (let i = 0; i < 5; i++) {
+//     // let choice = prompt("Please choose rock, paper, or scissors");
+//     let result = playRound(choice, getComputerChoice());
+
+//     if (result === "Win") {
+//       playerScore++;
+//     } else if (result === "Lose") {
+//       computerScore++;
+//     }
+//   }
+//   if (playerScore > computerScore) {
+//     console.log("The player wins the game!");
+//   } else if (computerScore > playerScore) {
+//     console.log("The computer wins!");
+//   } else {
+//     console.log("The game is a draw!");
+//   }
+// }
 
 // game();
